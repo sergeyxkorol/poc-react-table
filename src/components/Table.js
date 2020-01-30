@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useTable, useBlockLayout, useResizeColumns } from 'react-table';
+import { useTable, useFlexLayout, useResizeColumns } from 'react-table';
 import './Table.css';
 
 export default function Table({ columns, data }) {
@@ -7,7 +7,7 @@ export default function Table({ columns, data }) {
     () => ({
       width: 150,
       minWidth: 50,
-      maxWidh: 600
+      maxWidh: 300
     }),
     []
   );
@@ -18,37 +18,43 @@ export default function Table({ columns, data }) {
       data,
       defaultColumn
     },
-    useBlockLayout,
+    useFlexLayout,
     useResizeColumns
   );
 
   return (
-    <table {...getTableProps()}>
-      <thead>
+    <div {...getTableProps()} className="table">
+      <div className="thead">
         {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <div
+            {...headerGroup.getHeaderGroupProps({ style: { paddingRight: '15px' } })}
+            className="tr"
+          >
             {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>
+              <div {...column.getHeaderProps()} className="th">
                 {column.render('Header')}
                 <div {...column.getResizerProps()} className="resizer"></div>
-              </th>
+              </div>
             ))}
-          </tr>
+          </div>
         ))}
-      </thead>
-      <tbody {...getTableProps()}>
+      </div>
+      <div {...getTableBodyProps()} className="tbody">
         {rows.map(row => {
           prepareRow(row);
 
           return (
-            <tr {...row.getRowProps()}>
+            <div {...row.getRowProps()} className="tr">
               {row.cells.map(cell => (
-                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                <div {...cell.getCellProps()} className="td">
+                  {cell.render('Cell')}
+                  <div className="td-border"></div>
+                </div>
               ))}
-            </tr>
+            </div>
           );
         })}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 }
