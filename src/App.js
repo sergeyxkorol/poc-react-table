@@ -22,22 +22,26 @@ function App() {
     () => [
       {
         Header: 'Name',
-        accessor: 'name'
+        accessor: 'name',
+        sortType: 'basic'
       },
       {
         Header: 'Info',
         columns: [
           {
             Header: 'Phone',
-            accessor: 'phone'
+            accessor: 'phone',
+            disableSortBy: true
           },
           {
             Header: 'Email',
-            accessor: 'email'
+            accessor: 'email',
+            disableSortBy: true
           },
           {
             Header: 'Postal code',
-            accessor: 'postal_code'
+            accessor: 'postal_code',
+            disableSortBy: true
           },
           {
             Header: 'Country',

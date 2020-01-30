@@ -16,6 +16,10 @@
   border-right: 1px solid #000;
 }
 
+.th {
+  font-weight: 600;
+}
+
 .td {
   overflow-x: hidden;
   word-wrap: break-word;

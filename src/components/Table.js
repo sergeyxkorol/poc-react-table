@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useTable, useFlexLayout, useResizeColumns } from 'react-table';
+import { useTable, useSortBy, useFlexLayout, useResizeColumns } from 'react-table';
 import './Table.css';
 
 export default function Table({ columns, data }) {
@@ -7,7 +7,7 @@ export default function Table({ columns, data }) {
     () => ({
       width: 150,
       minWidth: 50,
-      maxWidh: 300
+      maxWidth: 300
     }),
     []
   );
@@ -18,20 +18,23 @@ export default function Table({ columns, data }) {
       data,
       defaultColumn
     },
+    useSortBy,
     useFlexLayout,
     useResizeColumns
   );
 
+  const bodyProps = { ...getTableBodyProps() };
+
   return (
     <div {...getTableProps()} className="table">
-      <div className="thead">
+      <div className="thead" style={bodyProps.style}>
         {headerGroups.map(headerGroup => (
           <div
             {...headerGroup.getHeaderGroupProps({ style: { paddingRight: '15px' } })}
             className="tr"
           >
             {headerGroup.headers.map(column => (
-              <div {...column.getHeaderProps()} className="th">
+              <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
                 {column.render('Header')}
                 <div {...column.getResizerProps()} className="resizer"></div>
               </div>
@@ -39,7 +42,7 @@ export default function Table({ columns, data }) {
           </div>
         ))}
       </div>
-      <div {...getTableBodyProps()} className="tbody">
+      <div {...bodyProps} className="tbody">
         {rows.map(row => {
           prepareRow(row);
 
