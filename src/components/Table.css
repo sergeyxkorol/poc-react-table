@@ -1,0 +1,36 @@
+table {
+  border: 1px solid #000;
+  border-spacing: 0;
+}
+
+th,
+td {
+  padding: 5px 10px;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+
+.resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background-color: #999;
+  opacity: 0.5;
+}
+
+.resizer:hover {
+  opacity: 1;
+}
