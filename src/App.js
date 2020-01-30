@@ -6,10 +6,9 @@ function App() {
   const [data, setData] = useState([]);
   const [errors, setErrors] = useState(false);
 
-  async function fetchData() {
-    const res = await fetch('./data.json');
-    res
-      .json()
+  function fetchData() {
+    fetch('./data.json')
+      .then(res => res.json())
       .then(res => setData(res))
       .catch(err => setErrors(err));
   }
