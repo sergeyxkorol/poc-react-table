@@ -47,12 +47,6 @@
   overflow-x: hidden;
 }
 
-.tbody {
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 300px;
-}
-
 .resizer {
   position: absolute;
   z-index: 1;

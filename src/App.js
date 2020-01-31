@@ -25,32 +25,27 @@ function App() {
         sortType: 'basic'
       },
       {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Phone',
-            accessor: 'phone',
-            disableSortBy: true
-          },
-          {
-            Header: 'Email',
-            accessor: 'email',
-            disableSortBy: true
-          },
-          {
-            Header: 'Postal code',
-            accessor: 'postal_code',
-            disableSortBy: true
-          },
-          {
-            Header: 'Country',
-            accessor: 'country'
-          },
-          {
-            Header: 'City',
-            accessor: 'city'
-          }
-        ]
+        Header: 'Phone',
+        accessor: 'phone',
+        disableSortBy: true
+      },
+      {
+        Header: 'Email',
+        accessor: 'email',
+        disableSortBy: true
+      },
+      {
+        Header: 'Postal code',
+        accessor: 'postal_code',
+        disableSortBy: true
+      },
+      {
+        Header: 'Country',
+        accessor: 'country'
+      },
+      {
+        Header: 'City',
+        accessor: 'city'
       }
     ],
     []

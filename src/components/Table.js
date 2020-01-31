@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { useTable, useSortBy, useFlexLayout, useResizeColumns } from 'react-table';
+import { FixedSizeList } from 'react-window';
 import Filter from './Filter';
 import './Table.css';
 
@@ -19,7 +20,9 @@ export default function Table({ columns, data }) {
     headerGroups,
     rows,
     prepareRow,
-    flatColumns
+    flatColumns,
+    state,
+    state: { columnResizing, hiddenColumns }
   } = useTable(
     {
       columns,
@@ -32,6 +35,30 @@ export default function Table({ columns, data }) {
   );
 
   const bodyProps = { ...getTableBodyProps() };
+
+  const RenderRow = useCallback(
+    ({ index, style }) => {
+      const row = rows[index];
+      prepareRow(row);
+      return (
+        <div
+          {...row.getRowProps({
+            style
+          })}
+          className="tr"
+        >
+          {row.cells.map(cell => {
+            return (
+              <div {...cell.getCellProps()} className="td">
+                {cell.render('Cell')}
+              </div>
+            );
+          })}
+        </div>
+      );
+    },
+    [rows, columnResizing, hiddenColumns]
+  );
 
   return (
     <div className="table-wrapper">
@@ -57,20 +84,9 @@ export default function Table({ columns, data }) {
           ))}
         </div>
         <div {...bodyProps} className="tbody">
-          {rows.map(row => {
-            prepareRow(row);
-
-            return (
-              <div {...row.getRowProps()} className="tr">
-                {row.cells.map(cell => (
-                  <div {...cell.getCellProps()} className="td">
-                    {cell.render('Cell')}
-                    <div className="td-border"></div>
-                  </div>
-                ))}
-              </div>
-            );
-          })}
+          <FixedSizeList height={450} itemCount={rows.length} itemSize={35}>
+            {RenderRow}
+          </FixedSizeList>
         </div>
       </div>
     </div>
