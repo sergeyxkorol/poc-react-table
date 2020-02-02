@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/poc-react-table/static/css/main.fbb9b6d3.chunk.css",
+    "main.js": "/poc-react-table/static/js/main.b884d21b.chunk.js",
+    "main.js.map": "/poc-react-table/static/js/main.b884d21b.chunk.js.map",
+    "runtime-main.js": "/poc-react-table/static/js/runtime-main.6c8b7b4f.js",
+    "runtime-main.js.map": "/poc-react-table/static/js/runtime-main.6c8b7b4f.js.map",
+    "static/js/2.02ea6325.chunk.js": "/poc-react-table/static/js/2.02ea6325.chunk.js",
+    "static/js/2.02ea6325.chunk.js.map": "/poc-react-table/static/js/2.02ea6325.chunk.js.map",
+    "index.html": "/poc-react-table/index.html",
+    "precache-manifest.0c91d68f6fb0b1bf509da880b7bd789e.js": "/poc-react-table/precache-manifest.0c91d68f6fb0b1bf509da880b7bd789e.js",
+    "service-worker.js": "/poc-react-table/service-worker.js",
+    "static/css/main.fbb9b6d3.chunk.css.map": "/poc-react-table/static/css/main.fbb9b6d3.chunk.css.map",
+    "static/js/2.02ea6325.chunk.js.LICENSE": "/poc-react-table/static/js/2.02ea6325.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c8b7b4f.js",
+    "static/js/2.02ea6325.chunk.js",
+    "static/css/main.fbb9b6d3.chunk.css",
+    "static/js/main.b884d21b.chunk.js"
+  ]
+}
