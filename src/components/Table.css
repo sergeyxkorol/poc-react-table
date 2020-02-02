@@ -34,7 +34,8 @@
 
 .td {
   overflow-x: hidden;
-  word-wrap: break-word;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .th:last-child,
