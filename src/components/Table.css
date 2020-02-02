@@ -1,0 +1,67 @@
+.table-wrapper {
+  display: flex;
+}
+
+.filter-wrapper {
+  flex: 1;
+  max-width: 200px;
+  margin-right: 20px;
+}
+
+.table {
+  flex: 1;
+  width: 100%;
+  display: block;
+  overflow: auto;
+  border: 1px solid #000;
+}
+
+.tr {
+  border-bottom: 1px solid #000;
+}
+
+.th,
+.td {
+  position: relative;
+  margin: 0;
+  padding: 5px 10px;
+  border-right: 1px solid #000;
+}
+
+.th {
+  font-weight: 600;
+}
+
+.td {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.th:last-child,
+.td:last-child {
+  border-right: none;
+}
+
+.thead {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.resizer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -5px;
+  width: 10px;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.resizer:hover {
+  background-color: #555;
+}
+
+.th:last-of-type .resizer {
+  right: -15px;
+}

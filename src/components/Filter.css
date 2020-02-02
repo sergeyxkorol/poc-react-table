@@ -1,0 +1,11 @@
+.filter-list {
+  padding: 0;
+}
+
+.filter-elem {
+  list-style: none;
+}
+
+.filter-label {
+  cursor: pointer;
+}
