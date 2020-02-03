@@ -29,7 +29,13 @@
 }
 
 .th {
+  padding-right: 10px;
   font-weight: 600;
+}
+
+.th-sortable {
+  height: 100%;
+  width: 100%;
 }
 
 .td {

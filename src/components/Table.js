@@ -74,9 +74,11 @@ export default function Table({ columns, data }) {
               className="tr"
             >
               {headerGroup.headers.map(column => (
-                <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
-                  {column.render('Header')}
-                  {column.canSort && <span> (sortable)</span>}
+                <div {...column.getHeaderProps()} className="th">
+                  <div {...column.getSortByToggleProps()} className="th-sortable">
+                    {column.render('Header')}
+                    {column.canSort && <span> (sortable)</span>}
+                  </div>
                   <div {...column.getResizerProps()} className="resizer"></div>
                 </div>
               ))}
