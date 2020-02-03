@@ -2,14 +2,16 @@ import React, { useMemo, useCallback } from 'react';
 import { useTable, useSortBy, useFlexLayout, useResizeColumns } from 'react-table';
 import { FixedSizeList } from 'react-window';
 import Filter from './Filter';
+import EditableCell from './EditableCell';
 import './Table.css';
 
-export default function Table({ columns, data }) {
+export default function Table({ columns, data, updateData }) {
   const defaultColumn = useMemo(
     () => ({
       width: 150,
       minWidth: 50,
-      maxWidth: 300
+      maxWidth: 300,
+      Cell: EditableCell
     }),
     []
   );
@@ -27,7 +29,8 @@ export default function Table({ columns, data }) {
     {
       columns,
       data,
-      defaultColumn
+      defaultColumn,
+      updateData
     },
     useSortBy,
     useFlexLayout,

@@ -52,9 +52,23 @@ function App() {
   );
   const rowsData = useMemo(() => data, [data]);
 
+  function updateData(rowIndex, columnId, value) {
+    setData(old =>
+      old.map((row, index) => {
+        if (index === rowIndex) {
+          return {
+            ...old[rowIndex],
+            [columnId]: value
+          };
+        }
+        return row;
+      })
+    );
+  }
+
   return (
     <div className="App">
-      <Table columns={columnsData} data={rowsData} />
+      <Table columns={columnsData} data={rowsData} updateData={updateData} />
     </div>
   );
 }
