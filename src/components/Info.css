@@ -1,0 +1,8 @@
+.info {
+  margin: 30px 0 0 220px;
+}
+
+.info-block {
+  max-height: 200px;
+  overflow-y: auto;
+}
