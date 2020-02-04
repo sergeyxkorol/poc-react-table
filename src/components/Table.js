@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useRef, useMemo, useCallback } from 'react';
 import { useTable, useSortBy, useFlexLayout, useResizeColumns, useRowSelect } from 'react-table';
 import { FixedSizeList } from 'react-window';
 import Filter from './Filter';
@@ -58,6 +58,17 @@ export default function Table({ columns, data, updateData }) {
     }
   );
 
+  // Used for columns highlighting
+  const tableRef = useRef(null);
+
+  const onCellMouseEnter = cell => {
+    tableRef.current.classList.add(`active-col-${cell.column.id}`);
+  };
+
+  const onCellMouseLeave = cell => {
+    tableRef.current.classList.remove(`active-col-${cell.column.id}`);
+  };
+
   const bodyProps = { ...getTableBodyProps() };
 
   const RenderRow = useCallback(
@@ -72,7 +83,13 @@ export default function Table({ columns, data, updateData }) {
           className="tr"
         >
           {row.cells.map(cell => (
-            <div {...cell.getCellProps()} className="td">
+            <div
+              {...cell.getCellProps()}
+              className="td"
+              data-column-id={cell.column.id}
+              onMouseEnter={() => onCellMouseEnter(cell)}
+              onMouseLeave={() => onCellMouseLeave(cell)}
+            >
               {cell.render('Cell')}
             </div>
           ))}
@@ -89,7 +106,7 @@ export default function Table({ columns, data, updateData }) {
           <Filter columns={flatColumns} />
         </div>
 
-        <div {...getTableProps()} className="table">
+        <div {...getTableProps()} className="table" ref={tableRef}>
           <div className="thead" style={bodyProps.style}>
             {headerGroups.map(headerGroup => (
               <div
@@ -97,7 +114,7 @@ export default function Table({ columns, data, updateData }) {
                 className="tr"
               >
                 {headerGroup.headers.map(column => (
-                  <div {...column.getHeaderProps()} className="th">
+                  <div {...column.getHeaderProps()} className="th" data-column-id={column.id}>
                     <div {...column.getSortByToggleProps()} className="th-sortable">
                       {column.render('Header')}
                       {column.canSort && <span> (sortable)</span>}

@@ -25,6 +25,8 @@
 }
 
 .tr {
+  min-width: 100%;
+  width: auto !important;
   border-bottom: 1px solid #eee;
 }
 
@@ -71,4 +73,14 @@
 
 .th:last-of-type .resizer {
   right: -15px;
+}
+
+/* Column styles */
+.active-col-name [data-column-id="name"],
+.active-col-phone [data-column-id="phone"],
+.active-col-email [data-column-id="email"],
+.active-col-postal_code [data-column-id="postal_code"],
+.active-col-country [data-column-id="country"],
+.active-col-city [data-column-id="city"] {
+  background-color: #eee;
 }

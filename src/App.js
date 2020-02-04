@@ -50,6 +50,7 @@ function App() {
     ],
     []
   );
+
   const rowsData = useMemo(() => data, [data]);
 
   function updateData(rowIndex, columnId, value) {
