@@ -24,6 +24,10 @@
   box-shadow: 0 1px 10px rgba(0,0,0,.15);
 }
 
+.thead .tr {
+  box-sizing: border-box;
+}
+
 .tr {
   min-width: 100%;
   width: auto !important;
@@ -64,11 +68,11 @@
   right: -5px;
   width: 10px;
   height: 100%;
-  background-color: #ccc;
+  background-color: #eee;
 }
 
 .resizer:hover {
-  background-color: #555;
+  background-color: #ccc;
 }
 
 .th:last-of-type .resizer {
