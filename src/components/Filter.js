@@ -1,5 +1,5 @@
 import React from 'react';
-import './Filter.css';
+import './Filter.scss';
 
 export default function Filter({ columns }) {
   return (

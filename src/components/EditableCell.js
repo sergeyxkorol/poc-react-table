@@ -1,5 +1,5 @@
 import React from 'react';
-import './EditableCell.css';
+import './EditableCell.scss';
 
 export default function EditableCell({
   cell: { value: initialValue },

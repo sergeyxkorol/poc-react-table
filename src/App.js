@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Table from './components/Table';
-import './App.css';
+import './App.scss';
 
 function App() {
   const [data, setData] = useState([]);
