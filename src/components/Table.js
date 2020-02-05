@@ -5,7 +5,7 @@ import Filter from './Filter';
 import IndeterminateCheckbox from './IndeterminateCheckbox';
 import EditableCell from './EditableCell';
 import Info from './Info';
-import './Table.css';
+import './Table.scss';
 
 export default function Table({ columns, data, updateData }) {
   const defaultColumn = useMemo(

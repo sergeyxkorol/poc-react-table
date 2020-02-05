@@ -1,0 +1,13 @@
+.filter {
+  &-list {
+    padding: 0;
+  }
+
+  &-elem {
+    list-style: none;
+  }
+
+  &-label {
+    cursor: pointer;
+  }
+}

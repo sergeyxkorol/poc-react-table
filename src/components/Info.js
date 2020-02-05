@@ -1,5 +1,5 @@
 import React from 'react';
-import './Info.css';
+import './Info.scss';
 
 export default function Info({ selectedRowIds, selectedFlatRows }) {
   return (
