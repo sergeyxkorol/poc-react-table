@@ -21,16 +21,11 @@
   z-index: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 0 1px 10px rgba(0,0,0,.15);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
 
   .tr {
     box-sizing: border-box;
   }
-}
-.tr {
-  min-width: 100%;
-  width: auto !important;
-  border-bottom: 1px solid #eee;
 }
 
 .th,
@@ -79,11 +74,11 @@
 }
 
 /* Column styles */
-.active-col-name [data-column-id="name"],
-.active-col-phone [data-column-id="phone"],
-.active-col-email [data-column-id="email"],
-.active-col-postal_code [data-column-id="postal_code"],
-.active-col-country [data-column-id="country"],
-.active-col-city [data-column-id="city"] {
+.active-col-name [data-column-id='name'],
+.active-col-phone [data-column-id='phone'],
+.active-col-email [data-column-id='email'],
+.active-col-postal_code [data-column-id='postal_code'],
+.active-col-country [data-column-id='country'],
+.active-col-city [data-column-id='city'] {
   background-color: #eee;
 }
