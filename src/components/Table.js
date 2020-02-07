@@ -3,6 +3,7 @@ import { useTable, useSortBy, useFlexLayout, useResizeColumns, useRowSelect } fr
 import { FixedSizeList } from 'react-window';
 import Filter from './Filter';
 import IndeterminateCheckbox from './IndeterminateCheckbox';
+import Row from './Row';
 import EditableCell from './EditableCell';
 import Info from './Info';
 import './Table.scss';
@@ -69,35 +70,25 @@ export default function Table({ columns, data, updateData }) {
     tableRef.current.classList.remove(`active-col-${cell.column.id}`);
   };
 
-  const bodyProps = { ...getTableBodyProps() };
-
+  // Used for virtualization via react-window
   const RenderRow = useCallback(
     ({ index, style }) => {
       const row = rows[index];
-      prepareRow(row);
+
       return (
-        <div
-          {...row.getRowProps({
-            style
-          })}
-          className="tr"
-        >
-          {row.cells.map(cell => (
-            <div
-              {...cell.getCellProps()}
-              className="td"
-              data-column-id={cell.column.id}
-              onMouseEnter={() => onCellMouseEnter(cell)}
-              onMouseLeave={() => onCellMouseLeave(cell)}
-            >
-              {cell.render('Cell')}
-            </div>
-          ))}
-        </div>
+        <Row
+          row={row}
+          prepareRow={prepareRow}
+          style={style}
+          onCellMouseEnter={onCellMouseEnter}
+          onCellMouseLeave={onCellMouseLeave}
+        />
       );
     },
     [rows, columnResizing, hiddenColumns, selectedRowIds]
   );
+
+  const bodyProps = { ...getTableBodyProps() };
 
   return (
     <div>
