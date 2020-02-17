@@ -95,7 +95,7 @@ export default function Table({ columns, data, updateData }) {
     <div>
       <div className="table-wrapper">
         <div className="filter-wrapper">
-          <Filter columns={allColumns} />
+          <Filter columns={allColumns} toggleAllProps={getToggleHideAllColumnsProps} />
         </div>
 
         <div {...getTableProps()} className="table" ref={tableRef}>
