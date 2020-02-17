@@ -11,7 +11,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
-    "react-table": "^7.0.0-rc.15",
+    "react-table": "^7.0.0-rc.16",
     "react-window": "^1.8.5"
   },
   "scripts": {
@@ -42,9 +42,9 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react": "^7.18.3",
     "prettier": "^1.19.1"
   }
 }

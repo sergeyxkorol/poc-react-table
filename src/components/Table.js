@@ -26,7 +26,8 @@ export default function Table({ columns, data, updateData }) {
     rows,
     prepareRow,
     selectedFlatRows,
-    flatColumns,
+    allColumns,
+    getToggleHideAllColumnsProps,
     state: { columnResizing, hiddenColumns, selectedRowIds }
   } = useTable(
     {
@@ -40,7 +41,7 @@ export default function Table({ columns, data, updateData }) {
     useResizeColumns,
     useRowSelect,
     hooks => {
-      hooks.flatColumns.push(columns => [
+      hooks.visibleColumns.push(columns => [
         {
           id: 'selection',
           Header: ({ getToggleAllRowsSelectedProps }) => (
@@ -94,7 +95,7 @@ export default function Table({ columns, data, updateData }) {
     <div>
       <div className="table-wrapper">
         <div className="filter-wrapper">
-          <Filter columns={flatColumns} />
+          <Filter columns={allColumns} />
         </div>
 
         <div {...getTableProps()} className="table" ref={tableRef}>
